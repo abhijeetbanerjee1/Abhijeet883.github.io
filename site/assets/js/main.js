@@ -106,4 +106,27 @@ function scrollup(){
     if(this.scrollY >= 560) scrollup.classList.add('show-scroll'); else scrollup.classList.remove('show-scroll')
 }
 window.addEventListener('scroll', scrollup)
+
+/* ASSIGNMENT MODAL */
+const modalViews = document.querySelectorAll('.assignments__modal'),
+      modalBtns = document.querySelectorAll('.assignments__button'),
+      modalCloses = document.querySelectorAll('.assignments__modal-close')
+
+let modal = function(modalClick){
+    modalViews[modalClick].classList.add('active-modal')
+}
+
+
+modalBtns.forEach((modalBtn, i) =>{
+    modalBtn.addEventListener('click', () => {
+        modal(i)
+    })
+})
  
+modalCloses.forEach((modalClose) => {
+    modalClose.addEventListener('click', () => {
+        modalViews.forEach((modalView) => {
+            modalView.classList.remove('active-modal')
+        })
+    })
+})

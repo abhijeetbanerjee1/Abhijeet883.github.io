@@ -1,17 +1,17 @@
-/* MENU SHOW Y HIDDEN */
+/* MENU SHOW and HIDE */
 const navMenu = document.getElementById('nav-menu'),
       navToggle = document.getElementById('nav-toggle'),
       navClose = document.getElementById('nav-close')
 
 /* MENU SHOW */
-/* Validate if constant exists */
+/* Using this function in smaller screen size when you click the nav toggle the menu tops up */
 if(navToggle){
     navToggle.addEventListener('click', () => {
         navMenu.classList.add('show-menu')
     })
 }
-/* MENU HIDDEN */
-/* Validate if constant exists */
+/* MENU HIDE */
+/* Using this function in smaller if the menu is showing and you click the cross the menu hides again */
 if(navClose){
     navClose.addEventListener('click', () => {
         navMenu.classList.remove('show-menu')
@@ -20,6 +20,7 @@ if(navClose){
 
 
 /* REMOVE MENU MOBILE */
+/* Using this function if the menu is up and you click on an item inside the menu and the menu hides again */
 const navLink = document.querySelectorAll('.nav__link')
 
 function linkAction(){

@@ -1,6 +1,4 @@
   
-
-
 h1{
     color: #006633;
 }
@@ -69,4 +67,8 @@ table {
     height: 120px;
   }
 
-  
+.survey-link:hover,
+.course-link:hover,
+.nav-link:hover{
+  color:#006633;
+}

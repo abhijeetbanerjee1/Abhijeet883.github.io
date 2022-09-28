@@ -7,9 +7,10 @@
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link rel="stylesheet" href="styles.css">
     
+    
     <title>Survey Form</title>
 </head>
-<body>
+<body onload="checkCookie()">
     <header class="w3-container header">
         <h1 class="top-title">Department of Computer Science</h1>
     </header>
@@ -18,53 +19,53 @@
     <form id="survey" autocomplete="on">
         <div class="form-headings">
         <!-------- User Name ------------->
-        <label for="name"><b>Name :</b></label>
+        <label><b>Name :</b></label>
         <span style="color:#ff0000">*</span>
         <input id="name" type="text" name="name" placeholder="Your Full Name" class="inputs" required autofocus> 
         
         <br>
 
         <!-------------- Use Email id ---------------->
-        <label for="email"><b>Email :</b></label>
+        <label><b>Email :</b></label>
         <span style="color:#ff0000">*</span>
         <input id="email" type="text" name="email" placeholder="Your Email here" class="inputs" required> 
         
         <br>
 
         <!------------------- User Phone Number ------------------->
-        <label for="phone"><b>Phone :</b></label>
+        <label><b>Phone :</b></label>
         <input type="tel" id="phone" name="phone"
                 pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
                 placeholder="123-456-7890" class="inputs">
         <br>
 
         <!-------------------- User Address ---------------------->
-        <label for="inputstreet"><b>Street Address :</b></label>
+        <label><b>Street Address :</b></label>
         <input type="street" class="inputs" id="inputstreet" placeholder="Street">
         
         <br>
-        <label for="inputcity"><b>City :</b></label>
+        <label><b>City :</b></label>
         <input type="city" class="inputs" id="inputcity" placeholder="City">
 
         <br>
-        <label for="inputstate"><b>State :</b></label>
+        <label><b>State :</b></label>
         <input type="state" class="inputs" id="inputstate" placeholder="State">
         <br>
-        <label for="inputzip"><b>Zip :</b></label>
+        <label><b>Zip :</b></label>
         <input type="zip" class="inputs" id="inputzip" placeholder="Zip">
         <br>
-        <label for="inputcountry"><b>Country :</b></label>
+        <label><b>Country :</b></label>
         <input type="country" class="inputs" id="inputcountry" placeholder="Country">
         <br>
 
         <!-------------------- Date of Survey ---------------------->
-        <label for="date"><b>Today's Date :</b></label>
+        <label><b>Today's Date :</b></label>
         <span style="color:#ff0000">*</span>
         <input type="date" id="date" name="date" class="inputs" required>
         <br>
 
         <!--------------------------- Graduation Month and Year -------------------------->
-        <label for="month"><b>Choose your high school graduation month from the list :</b></label>
+        <label><b>Choose your high school graduation month from the list :</b></label>
         <span style="color:#ff0000">*</span>
         <input list="months" name="month" id="month" class="inputs" required>
         <datalist id="months">
@@ -82,76 +83,76 @@
             <option value="December">
         </datalist>
         <br>
-        <label for="year"><b>Graduation Year:</b></label>
+        <label><b>Graduation Year:</b></label>
         <span style="color:#ff0000">*</span>
         <input type="year" id="year" name="year" class="inputs" required>
         <br>
 
         <!----------------------- Where did you learn about this Uni ------------------------->
-        <label for="interest" id="interest"><b>How did you learn about this university :</b></label>
+        <label><b>How did you learn about this university :</b></label>
         <br>
-        <input id="interest" type="radio" id="friends" name="source" value="friends">
-        <label for="interest">Friends</label>
-        <br>
-
-        <input id="interest" type="radio" id="instagram" name="source" value="instagram">
-        <label for="interest">Instagram</label>
+        <input id="friends" type="radio" id="friends" name="source" value="friends">
+        <label for="friends">Friends</label>
         <br>
 
-        <input id="interest" type="radio" id="website" name="source" value="website">
-        <label for="interest">University Website</label>
+        <input id="insta" type="radio" id="instagram" name="source" value="instagram">
+        <label for="insta">Instagram</label>
         <br>
 
-        <input id="interest" type="radio" id="television" name="source" value="television">
-        <label for="interest">television</label>
+        <input id="site" type="radio" id="website" name="source" value="website">
+        <label for="site">University Website</label>
         <br>
 
-        <input id="interest" type="radio" id="other" name="source" value="other">
-        <label for="interest">Other :</label>
-        <input id="interest" type="text" name="interest" placeholder="Please Mention Source" class="input">
+        <input id="tele" type="radio" id="television" name="source" value="television">
+        <label for="tele">television</label>
+        <br>
+
+        <input id="other" type="radio" id="other" name="source" value="other">
+        <label for="other">Other :</label>
+        <input id="other" type="text" name="interest" placeholder="Please Mention Source" class="input">
         <br>
         <br>
         <!---------------------- Campus Visited ----------------------->
-        <label for="campus"><b>Which campus have you visited :</b></label>
+        <label><b>Which campus have you visited :</b></label>
         <br>
-        <input id="checkbox" type="checkbox" name="campus" value="fairfax">
-        <label for="checkbox">Fairfax Campus</label>
-        <br>
-
-        <input id="checkbox" type="checkbox" name="campus" value="arlington">
-        <label for="checkbox">Arlington Campus</label>
+        <input id="ffx" type="checkbox" name="campus" value="fairfax">
+        <label for="ffx">Fairfax Campus</label>
         <br>
 
-        <input id="checkbox" type="checkbox" name="campus" value="scitech">
-        <label for="checkbox">Science and Technology Campus</label>
+        <input id="arling" type="checkbox" name="campus" value="arlington">
+        <label for="arling">Arlington Campus</label>
+        <br>
+
+        <input id="sci" type="checkbox" name="campus" value="scitech">
+        <label for="sci">Science and Technology Campus</label>
         <br>
         <br>
         <!---------------------- Like about Campus -------------------------->
-        <label for="liked"><b>What did you like most about the campus :</b></label>
+        <label><b>What did you like most about the campus :</b></label>
         <br>
-        <input id="liked" type="checkbox" name="liked" value="students">
-        <label for="liked">Students</label>
+        <input id="stud" type="checkbox" name="liked" value="students">
+        <label for="stud">Students</label>
         <br>
-        <input id="liked" type="checkbox" name="liked" value="location">
-        <label for="liked">Location</label>
+        <input id="loc" type="checkbox" name="liked" value="location">
+        <label for="loc">Location</label>
         <br>
-        <input id="liked" type="checkbox" name="liked" value="campus">
-        <label for="liked">Campus</label>
+        <input id="campus" type="checkbox" name="liked" value="campus">
+        <label for="campus">Campus</label>
         <br>
-        <input id="liked" type="checkbox" name="liked" value="atmosphere">
-        <label for="liked">Atmosphere</label>
+        <input id="atmos" type="checkbox" name="liked" value="atmosphere">
+        <label for="atmos">Atmosphere</label>
         <br>
-        <input id="liked" type="checkbox" name="liked" value="dorm">
-        <label for="liked">Dorm Rooms</label>
+        <input id="dorm" type="checkbox" name="liked" value="dorm">
+        <label for="dorm">Dorm Rooms</label>
         <br>
-        <input id="liked" type="checkbox" name="liked" value="sports">
-        <label for="liked">Sports</label>
+        <input id="sports" type="checkbox" name="liked" value="sports">
+        <label for="sports">Sports</label>
         <br>
         <br>
         
 
         <!---------------------------- Recommend to others --------------------------->
-        <label for="dropdown" id="recommend"><b>How likely are you to recommend this school to your friends :</b></label>
+        <label><b>How likely are you to recommend this school to your friends :</b></label>
         <select id="dropdown" class="input">
             <option value="Very_Likely">Very Likely</option>
             <option value="Likely">Likely</option>
@@ -167,7 +168,7 @@
         
 
         <!------------------------ Additional Comments -------------------------->
-        <label id="textarea"><b>Additional Comments :</b></label>
+        <label><b>Additional Comments :</b></label>
         <br>
         <textarea name="comments" id="textarea" cols="30" rows="10" placeholder="Add your comments here" class="input"></textarea>
         <br>
@@ -209,6 +210,6 @@
             <p class="footer__copy">&#169; GMU. All rights reserved</p>
         </div>
     </footer>
-
+    <script src="main.js"></script>
 </body>
 </html>

@@ -38,35 +38,23 @@ function getCookie(cname) {
 }
 
 function checkCookie() {
-	var now = new Date();
-	var hour = now.getHours();
-
-    if ( hour < 12 )
-      document.write(" <h1>Good Morning </h1>")
-    else
-    {
-      hour = hour - 12;
-
-      if ( hour < 6 )
-       document.write(" <h1>Good Afternoon </h1>")
-      else
-        document.write(" <h1>Good Evening </h1>")
-    }
   let user = getCookie("username");
   if (user != "") {
-    document.writeln("Hello " + user + " Welcome Back")
+    //document.writeln("Hello " + user + " Welcome Back")
+    document.getElementById("name").innerHTML = "Hello " + user + " Welcome Back";
   } else {
      user = prompt("Please enter your name:","");
      if (user != "" && user != null) {
-     	document.writeln("Welcome " + user)
-       setCookie("username", user, 30);
+     	//document.writeln("Welcome " + user)
+      document.getElementById("name").innerHTML = "Welcome " + user;
+      setCookie("username", user, 30);
      }
   }
-  document.writeln( "<a href = 'javascript:wrongPerson()'>"+ "Click here if you are not " + user + "</a>");
+  //document.writeln( "<a href = 'javascript:wrongPerson()'>"+ "Click here if you are not " + user + "</a>");
 }
 
 
 
-function wrongPerson(){
+/*function wrongPerson(){
 	location.reload();
-}
+}*/

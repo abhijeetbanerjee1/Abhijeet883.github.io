@@ -12,7 +12,9 @@ h1{
 }
 
 .title,
-.description{
+.description,
+.greet,
+.username{
   font-family: 'Open Sans';
   text-align: center;
 }

@@ -12,13 +12,21 @@ h1{
 }
 
 .title,
-.description,
-.greet,
-.username{
+.description{
   font-family: 'Open Sans';
   text-align: center;
 }
 
+.greet{
+  font-family: 'Open Sans';
+  text-align: center;
+  font-size: 150%;
+}
+
+.username{
+  font-family: 'Open Sans';
+  text-align: right;
+}
 
 form{
   background:  #FFFF;

@@ -9,10 +9,10 @@ else
   if ( hour < 6 )
   document.getElementById("greetings").innerHTML = "<h1>Good Afternoon </h1>";
 else
-  document.getElementById("greetings").innerHTML = "<h1>Good Evening</h1>";
+  document.getElementById("greetings").innerHTML = "Good Evening";
 }
 
-document.cookie = "username=John Doe; expires=Thu, 18 Dec 2023 12:00:00 UTC; path=/";
+//document.cookie = "username=John Doe; expires=Thu, 18 Dec 2023 12:00:00 UTC; path=/";
 
 function setCookie(cname,cvalue,exdays) 
 {
@@ -48,7 +48,7 @@ function checkCookie()
   if (user != "") 
   {
     //document.writeln("Hello " + user + " Welcome Back")
-    document.getElementById("name").innerHTML = "Hello " + user + " Welcome Back";
+    document.getElementById("name").innerHTML =user + " Welcome to SWE 642 Survey";
   } 
   else 
   {
@@ -56,15 +56,22 @@ function checkCookie()
      if (user != "" && user != null) 
      {
      	//document.writeln("Welcome " + user)
-      document.getElementById("name").innerHTML = "Welcome " + user;
+      document.getElementById("name").innerHTML =user + " Welcome to SWE 642 Survey";
       setCookie("username", user, 30);
      }
   }
+  document.getElementById("wrong").innerHTML ="Not " +user;
   //document.writeln( "<a href = 'javascript:wrongPerson()'>"+ "Click here if you are not " + user + "</a>");
 }
 
 
-
-/*function wrongPerson(){
+function wrongPerson(){
+  let user = prompt("Please enter your name:","");
+     if (user != "" && user != null) 
+     {
+     	//document.writeln("Welcome " + user)
+      document.getElementById("name").innerHTML =user + " Welcome to SWE 642 Survey";
+      setCookie("username", user, 30);
+     }
 	location.reload();
-}*/
+}

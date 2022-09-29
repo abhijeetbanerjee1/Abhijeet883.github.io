@@ -10,15 +10,17 @@
     
     <title>Survey Form</title>
 </head>
-<body>
+<body onload="checkCookie()">
     <header class="w3-container header">
         <h1 class="top-title">Department of Computer Science</h1>
     </header>
 
 
-    <p id="greetings" class="greet"></p>
-    <p id="name" class="username"></p>
     
+
+    <p class="greet"><span id="greetings"></span>, <span id="name"></span></p>
+    <p class="username w3-container"><span id="wrong"></span> <span><button onclick="wrongPerson()">Click me</button></span</p>
+
 
     <h2 id="title" class="title">Survey Form</h2>
     <h5 id="description" class="description">Please fill the details below to complete our survey form. Required fields will be marked as *.</h5>

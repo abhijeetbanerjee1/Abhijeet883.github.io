@@ -1,3 +1,7 @@
+//Name: Abhijeet Banerjee
+//G# 01349260
+//SWE 642
+
 //Greetings
 var now = new Date();
 var hour = now.getHours();
@@ -122,7 +126,7 @@ function average()
 }
 
 // Form Validation Function
-function formvalidation() 
+function formvalidation(event) 
 {
 
   var nameformat = /^[A-Za-z ]+$/;
@@ -193,15 +197,15 @@ function formvalidation()
     document.getElementById("box-title").innerHTML = "Error :"
     document.getElementById("box-content").innerHTML = errormsgdisp
 
-    $(document).ready(function(){
+    //$(document).ready(function(){
       //Show Popup box
       $("#popup-container").show();
-      
+      event.preventDefault();
       //Close Popup box
       $("#close-btn").click(function(){
         $("#popup-container").hide();
       })
-    })
+    //})
     return false;
   } 
   else 
@@ -209,17 +213,30 @@ function formvalidation()
     document.getElementById("box-title").innerHTML = "Congratulations !"
     document.getElementById("box-content").innerHTML = "Your Feedback has been Submitted."
 
-    $(document).ready(function(){
+    //$(document).ready(function(){
       //Show Popup box
       $("#popup-container").show();
+      event.preventDefault();
       
       //Close Popup box
       $("#close-btn").click(function(){
         $("#popup-container").hide();
+        $("#reset-id").click();
       })
-    })
+      
+    //})
     return true;
   }
+}
+
+//Reset the Form
+function formreset() {
+  document.getElementById("city-id").innerHTML = "";
+  document.getElementById("state-id").innerHTML = "";
+  document.getElementById("zip-error").innerHTML = "";
+  document.getElementById("array").innerHTML = "";
+  document.getElementById("token").innerHTML = "";
+  document.getElementById("p01").innerHTML = "";
 }
 
 // Zip code section

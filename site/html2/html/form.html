@@ -1,3 +1,6 @@
+<!-- Name: Abhijeet Banerjee 
+    G# 01349260 
+    SWE 642 -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,14 +9,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link rel="stylesheet" href="styles.css">
-    <link href="http://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <!--<link href="http://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css" rel="stylesheet">-->
+    <link href="jquery-ui.css" rel="stylesheet">
     
-    <link rel="stylesheet" href="/resources/demos/style.css">
-    <script
-    src="https://code.jquery.com/jquery-3.6.1.min.js"
-    integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ="
-    crossorigin="anonymous"></script>
+    
+    <!--<link rel="stylesheet" href="/resources/demos/style.css">-->
+    <script src="jquery-3.6.1.js"></script>
     <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
     <script>
         $( function() {
@@ -73,18 +74,18 @@
         
         
             <!-- Form starts here -->
-            <form id="survey" autocomplete="on">
+            <form id="survey" autocomplete="on" onreset="formreset();">
                 <div class="form-headings">
                 <!-------- User Name ------------->
                 <label><b>Name :</b></label>
                 <span style="color:#ff0000">*</span>
-                <input id="name-id" type="text" name="name" placeholder="Your Full Name" class="inputs" required autofocus> 
+                <input id="name-id" type="text" name="name" placeholder="Your Full Name" class="inputs" autofocus> 
                 <br>
         
                 <!-------------- Use Email id ---------------->
                 <label><b>Email :</b></label>
                 <span style="color:#ff0000">*</span>
-                <input id="email-id" type="text" placeholder="Your Email here" class="inputs" required> 
+                <input id="email-id" type="text" placeholder="Your Email here" class="inputs"> 
                 
                 <br>
         
@@ -97,6 +98,7 @@
         
                 <!-------------------- User Address ---------------------->
                 <label><b>Street Address :</b></label>
+                <span style="color:#ff0000">*</span>
                 <input type="street" class="inputs" id="inputstreet-id" placeholder="Street">
                 
                 <br>
@@ -120,14 +122,14 @@
         
                 <!-------------------- Date of Survey ---------------------->
                 <label><b>Today's Date :</b></label>
-                <span style="color:#ff0000">*</span>
-                <input type="date" id="date" name="date" class="inputs" required>
+                <!--<span style="color:#ff0000">*</span>-->
+                <input type="date" id="date" name="date" class="inputs">
                 <br>
         
                 <!--------------------------- Graduation Month and Year -------------------------->
                 <label><b>Choose your high school graduation month from the list :</b></label>
-                <span style="color:#ff0000">*</span>
-                <input list="months" name="month" id="month" class="inputs" required>
+                <!--<span style="color:#ff0000">*</span>-->
+                <input list="months" name="month" id="month" class="inputs">
                 <datalist id="months">
                     <option value="January">
                     <option value="February">
@@ -144,13 +146,14 @@
                 </datalist>
                 <br>
                 <label><b>Graduation Year:</b></label>
-                <span style="color:#ff0000">*</span>
-                <input type="year" id="year" name="year" class="inputs" required>
+                <!--<span style="color:#ff0000">*</span>-->
+                <input type="year" id="year" name="year" class="inputs">
                 <br>
         
                 <!----------------------- Where did you learn about this Uni ------------------------->
                 <label><b>How did you learn about this university :</b></label>
-                <br>
+                <div style="color:#ff0000">* Select At least one *</div>
+            
                 <input id="friends" type="radio" id="friends" name="source" value="friends">
                 <label for="friends">Friends</label>
                 <br>
@@ -189,7 +192,8 @@
                 <br>
                 <!---------------------- Like about Campus -------------------------->
                 <label><b>What did you like most about the campus :</b></label>
-                <br>
+                <div style="color:#ff0000">* Check At least two *</div>
+                
                 <input id="stud" type="checkbox" name="liked" value="students">
                 <label for="stud">Students</label>
                 <br>
@@ -238,7 +242,7 @@
                 <label><b>Calculation :</b></label>
                 <p>Enter ten comma separated numbers ranging from 1 through 100 :<br />
                 <input id = "inputVal" onblur = "average();" type = "text" size = "40" placeholder="eg:1,2,3,4,5,6,7,8,9,10"/></p>
-                <p style="color:#ff0000"id="p01"></p>
+                <p style="color:#ff0000" id="p01"></p>
                 <label>Average:</label>
                 <span id="array"></span>
                 <br>
@@ -250,11 +254,11 @@
                 <!--<p>Average:<input id="array" type = "text" size = "15" /></p>
                 <p>Maximum:<input id="token" type = "text" size = "15" /></p>-->
         
-                <!----------------- Submit Button ----------------->
+                <!----------------- Submit & Reset Button ----------------->
                 <div class="button">
-                    <input type="submit" id="subm" onclick="formvalidation()" value="Submit" class="sub"/>
+                    <input type="submit" id="subm" onclick="formvalidation(event)" value="Submit" class="sub"/>
                     
-                    <input type="reset" value="Reset" />
+                    <input type="reset" value="Reset" id="reset-id" class="res"/>
                 </div>
                 </div>
         
@@ -262,8 +266,8 @@
                     <div id="close-btn-container">
                       <span id="close-btn">Close</span>
                     </div>
-                    <h2 id="box-title">Popup Heading</h2>
-                    <p id="box-content">Popup sample content</p>
+                    <h2 id="box-title" style="color:#ff0000">Popup Heading</h2>
+                    <p id="box-content" style="color:#ff0000">Popup sample content</p>
                 </div>
             </form>
         </div>

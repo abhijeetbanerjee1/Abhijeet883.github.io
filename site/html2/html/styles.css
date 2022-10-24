@@ -1,4 +1,6 @@
-
+/* Name: Abhijeet Banerjee
+  G# 01349260
+  SWE 642*/
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap');
 
 body{
@@ -54,7 +56,8 @@ form{
   align-items: center;
 }
 
-.sub{
+.sub,
+.res{
   cursor: pointer;
   width: 50%;
   border-radius: 2px;
@@ -117,7 +120,7 @@ form{
 
 #popup-container{
   position: fixed;
-  background-color: #CF9FFF;
+  background-color: #ccc;
   border-radius: 2rem;
   left: 25%;
   top: 10%;

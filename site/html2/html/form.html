@@ -60,17 +60,20 @@
         
         <br>
         <label><b>City :</b></label>
-        <input type="city" class="inputs" id="inputcity" placeholder="City">
+        <p id="city-id"></p>
+        <!--<input type="city" class="inputs" id="inputcity" placeholder="City">-->
 
         <br>
         <label><b>State :</b></label>
-        <input type="state" class="inputs" id="inputstate" placeholder="State">
+        <p id="state-id"></p>
+        <!--<input type="state" class="inputs" id="inputstate" placeholder="State">-->
         <br>
         <label><b>Zip :</b></label>
-        <input type="zip" class="inputs" id="inputzip" placeholder="Zip">
+        <input type="zip" class="inputs" id="zip-id" placeholder="Zip">
+        <span id="zip-error"></span>
         <br>
-        <label><b>Country :</b></label>
-        <input type="country" class="inputs" id="inputcountry" placeholder="Country">
+        <!--<label><b>Country :</b></label>
+        <input type="country" class="inputs" id="inputcountry" placeholder="Country">-->
         <br>
 
         <!-------------------- Date of Survey ---------------------->
@@ -194,8 +197,16 @@
         <p>Enter ten comma separated numbers ranging from 1 through 100 :<br />
         <input id = "inputVal" onblur = "average();" type = "text" size = "40" placeholder="eg:1,2,3,4,5,6,7,8,9,10"/></p>
         <p style="color:#ff0000"id="p01"></p>
-        <p>Average:<input id="array" type = "text" size = "15" /></p>
-        <p>Maximum:<input id="token" type = "text" size = "15" /></p>
+        <label>Average:</label>
+        <span id="array"></span>
+        <br>
+        <br>
+        <label>Maximum:</label>
+        <span id="token"></span>
+        <br>
+        <br>
+        <!--<p>Average:<input id="array" type = "text" size = "15" /></p>
+        <p>Maximum:<input id="token" type = "text" size = "15" /></p>-->
 
         <!----------------- Submit Button ----------------->
         <div class="button">

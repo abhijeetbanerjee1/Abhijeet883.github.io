@@ -117,8 +117,8 @@ function average()
     avg = total / count;
   }
 
-  document.getElementById("array").value = avg
-  document.getElementById("token").value = max
+  document.getElementById("array").innerHTML = avg
+  document.getElementById("token").innerHTML = max
 }
 
 // Form Validation Function
@@ -220,4 +220,55 @@ function formvalidation()
     })
     return true;
   }
+}
+
+// Zip code section
+function validateZip(zip) {
+  try {
+      var asyncRequest = new XMLHttpRequest();
+      asyncRequest.onreadystatechange = function () {
+          callBack(zip, asyncRequest);
+      };
+      asyncRequest.open("GET", "zips.json", true);
+      asyncRequest.withCredentials = true;
+      asyncRequest.send();
+  }
+  catch (exception) {
+      alert("Request failed.");
+  }
+}
+
+function callBack(zip, asyncRequest) {
+  document.getElementById("zip-error").innerHTML = "Checking zip...";
+  document.getElementById('city-id').innerHTML = "";
+  document.getElementById('state-id').innerHTML = "";
+  if (asyncRequest.readyState == 4) {
+      if (asyncRequest.status == 200 || asyncRequest.status == 304) {
+          var data = JSON.parse(asyncRequest.responseText);
+          result = isValid(zip, data)
+          if (result.valid) {
+              document.getElementById('zip-error').innerHTML = '';
+              document.getElementById('city-id').innerHTML = result.city;
+              document.getElementById('state-id').innerHTML = result.state;
+          } else {
+              document.getElementById("zip-error").innerHTML="Invalid Zip Code.";
+          }
+      }
+  }
+}
+
+function isValid(zip, data) {
+  var zipcodes = data.zipcodes;
+  for (var element of zipcodes) {
+      if(element.zip === zip) {
+          return {
+              valid: true,
+              city: element.city,
+              state: element.state
+          };
+      }
+  }
+  return {
+      valid: false
+  };
 }

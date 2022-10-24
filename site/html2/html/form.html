@@ -6,10 +6,43 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link rel="stylesheet" href="styles.css">
+    <link href="http://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    
+    <link rel="stylesheet" href="/resources/demos/style.css">
     <script
     src="https://code.jquery.com/jquery-3.6.1.min.js"
     integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ="
     crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+    <script>
+        $( function() {
+          $( "#tabs" ).tabs();
+        } );
+    </script>
+    <style>  
+        #tabs { 
+            padding: 0px; 
+            background: none; 
+            border-width: 0px; 
+        } 
+        #tabs .ui-tabs-nav { 
+            padding-left: 0px; 
+            background: #FFCC33; 
+            border-width: 0px 0px 1px 0px;
+            border-top:    2px solid #006633;
+            border-right:  2px solid #006633; 
+            border-left: 2px solid #006633; 
+            -moz-border-radius: 0px; 
+            -webkit-border-radius: 0px; 
+            border-radius: 0px; 
+        } 
+        #tabs .ui-tabs-panel { 
+            /*background: #f5f3e5 url(https://code.jquery.com/ui/1.8.23/themes/south-street/images/ui-bg_highlight-hard_100_f5f3e5_1x100.png) repeat-x scroll 50% top;*/
+            border-width: 0px 1px 1px 1px; 
+        }
+    </style>  
+      
     
     
     <title>Survey Form</title>
@@ -26,205 +59,266 @@
     <p class="username w3-container"><span id="wrong"></span> <span><button onclick="wrongPerson()">Click here</button></span></p>
 
 
-    <h2 id="title" class="title">Survey Form</h2>
-    <h5 id="description" class="description">Please fill the details below to complete our survey form. Required fields will be marked as *.</h5>
-
-
-
-    <!-- Form starts here -->
-    <form id="survey" autocomplete="on">
-        <div class="form-headings">
-        <!-------- User Name ------------->
-        <label><b>Name :</b></label>
-        <span style="color:#ff0000">*</span>
-        <input id="name-id" type="text" name="name" placeholder="Your Full Name" class="inputs" required autofocus> 
-        <br>
-
-        <!-------------- Use Email id ---------------->
-        <label><b>Email :</b></label>
-        <span style="color:#ff0000">*</span>
-        <input id="email-id" type="text" placeholder="Your Email here" class="inputs" required> 
+    <div id="tabs">
+        <ul>
+          <li><a href="#tabs-1">Form</a></li>
+          <li><a href="#tabs-2">Page</a></li>
+        </ul>
         
-        <br>
-
-        <!------------------- User Phone Number ------------------->
-        <label><b>Phone :</b></label>
-        <input type="tel" id="phone" name="phone"
-                pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
-                placeholder="xxx-xxx-xxxx" class="inputs">
-        <br>
-
-        <!-------------------- User Address ---------------------->
-        <label><b>Street Address :</b></label>
-        <input type="street" class="inputs" id="inputstreet-id" placeholder="Street">
+        <div id="tabs-1">
+          
+            <h2 id="title" class="title">Survey Form</h2>
+            <h5 id="description" class="description">Please fill the details below to complete our survey form. Required fields will be marked as *.</h5>
         
-        <br>
-        <label><b>City :</b></label>
-        <span id="city-id"></span>
-        <!--<input type="city" class="inputs" id="inputcity" placeholder="City">-->
-        <br>
-        <br>
-        <label><b>State :</b></label>
-        <span id="state-id"></span>
-        <!--<input type="state" class="inputs" id="inputstate" placeholder="State">-->
-        <br>
-        <br>
-        <label><b>Zip :</b></label>
-        <input type="zip" class="inputs" id="zip-id" placeholder="Zip" onblur="validateZip(this.value);">
-        <span id="zip-error"></span>
-        <br>
-        <!--<label><b>Country :</b></label>
-        <input type="country" class="inputs" id="inputcountry" placeholder="Country">-->
-        <br>
-
-        <!-------------------- Date of Survey ---------------------->
-        <label><b>Today's Date :</b></label>
-        <span style="color:#ff0000">*</span>
-        <input type="date" id="date" name="date" class="inputs" required>
-        <br>
-
-        <!--------------------------- Graduation Month and Year -------------------------->
-        <label><b>Choose your high school graduation month from the list :</b></label>
-        <span style="color:#ff0000">*</span>
-        <input list="months" name="month" id="month" class="inputs" required>
-        <datalist id="months">
-            <option value="January">
-            <option value="February">
-            <option value="March">
-            <option value="April">
-            <option value="May">
-            <option value="June">
-            <option value="July">
-            <option value="August">
-            <option value="September">
-            <option value="October">
-            <option value="November">
-            <option value="December">
-        </datalist>
-        <br>
-        <label><b>Graduation Year:</b></label>
-        <span style="color:#ff0000">*</span>
-        <input type="year" id="year" name="year" class="inputs" required>
-        <br>
-
-        <!----------------------- Where did you learn about this Uni ------------------------->
-        <label><b>How did you learn about this university :</b></label>
-        <br>
-        <input id="friends" type="radio" id="friends" name="source" value="friends">
-        <label for="friends">Friends</label>
-        <br>
-
-        <input id="insta" type="radio" id="instagram" name="source" value="instagram">
-        <label for="insta">Instagram</label>
-        <br>
-
-        <input id="site" type="radio" id="website" name="source" value="website">
-        <label for="site">University Website</label>
-        <br>
-
-        <input id="tele" type="radio" id="television" name="source" value="television">
-        <label for="tele">television</label>
-        <br>
-
-        <input id="other" type="radio" id="other" name="source" value="other">
-        <label for="other">Other :</label>
-        <input id="other" type="text" name="interest" placeholder="Please Mention Source" class="input">
-        <br>
-        <br>
-        <!---------------------- Campus Visited ----------------------->
-        <label><b>Which campus have you visited :</b></label>
-        <br>
-        <input id="ffx" type="checkbox" name="campus" value="fairfax">
-        <label for="ffx">Fairfax Campus</label>
-        <br>
-
-        <input id="arling" type="checkbox" name="campus" value="arlington">
-        <label for="arling">Arlington Campus</label>
-        <br>
-
-        <input id="sci" type="checkbox" name="campus" value="scitech">
-        <label for="sci">Science and Technology Campus</label>
-        <br>
-        <br>
-        <!---------------------- Like about Campus -------------------------->
-        <label><b>What did you like most about the campus :</b></label>
-        <br>
-        <input id="stud" type="checkbox" name="liked" value="students">
-        <label for="stud">Students</label>
-        <br>
-        <input id="loc" type="checkbox" name="liked" value="location">
-        <label for="loc">Location</label>
-        <br>
-        <input id="campus" type="checkbox" name="liked" value="campus">
-        <label for="campus">Campus</label>
-        <br>
-        <input id="atmos" type="checkbox" name="liked" value="atmosphere">
-        <label for="atmos">Atmosphere</label>
-        <br>
-        <input id="dorm" type="checkbox" name="liked" value="dorm">
-        <label for="dorm">Dorm Rooms</label>
-        <br>
-        <input id="sports" type="checkbox" name="liked" value="sports">
-        <label for="sports">Sports</label>
-        <br>
-        <br>
         
-
-        <!---------------------------- Recommend to others --------------------------->
-        <label><b>How likely are you to recommend this school to your friends :</b></label>
-        <select id="dropdown" class="input">
-            <option value="Very_Likely">Very Likely</option>
-            <option value="Likely">Likely</option>
-            <option value="Unlikely">Unlikely</option>
-        </select>
-        <br>
-        <br>
-
         
-
+            <!-- Form starts here -->
+            <form id="survey" autocomplete="on">
+                <div class="form-headings">
+                <!-------- User Name ------------->
+                <label><b>Name :</b></label>
+                <span style="color:#ff0000">*</span>
+                <input id="name-id" type="text" name="name" placeholder="Your Full Name" class="inputs" required autofocus> 
+                <br>
         
-
+                <!-------------- Use Email id ---------------->
+                <label><b>Email :</b></label>
+                <span style="color:#ff0000">*</span>
+                <input id="email-id" type="text" placeholder="Your Email here" class="inputs" required> 
+                
+                <br>
         
-
-        <!------------------------ Additional Comments -------------------------->
-        <label><b>Additional Comments :</b></label>
-        <br>
-        <textarea name="comments" id="textarea" cols="30" rows="5" placeholder="Add your comments here" class="input"></textarea>
-        <br>
-        <br>
-
-        <!----------------- Average and Maximum ----------------->
-        <label><b>Calculation :</b></label>
-        <p>Enter ten comma separated numbers ranging from 1 through 100 :<br />
-        <input id = "inputVal" onblur = "average();" type = "text" size = "40" placeholder="eg:1,2,3,4,5,6,7,8,9,10"/></p>
-        <p style="color:#ff0000"id="p01"></p>
-        <label>Average:</label>
-        <span id="array"></span>
-        <br>
-        <br>
-        <label>Maximum:</label>
-        <span id="token"></span>
-        <br>
-        <br>
-        <!--<p>Average:<input id="array" type = "text" size = "15" /></p>
-        <p>Maximum:<input id="token" type = "text" size = "15" /></p>-->
-
-        <!----------------- Submit Button ----------------->
-        <div class="button">
-            <input type="submit" id="subm" onclick="formvalidation()" value="Submit" class="sub"/>
-            
-            <input type="reset" value="Reset" />
+                <!------------------- User Phone Number ------------------->
+                <label><b>Phone :</b></label>
+                <input type="tel" id="phone" name="phone"
+                        pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
+                        placeholder="xxx-xxx-xxxx" class="inputs">
+                <br>
+        
+                <!-------------------- User Address ---------------------->
+                <label><b>Street Address :</b></label>
+                <input type="street" class="inputs" id="inputstreet-id" placeholder="Street">
+                
+                <br>
+                <label><b>City :</b></label>
+                <span id="city-id"></span>
+                <!--<input type="city" class="inputs" id="inputcity" placeholder="City">-->
+                <br>
+                <br>
+                <label><b>State :</b></label>
+                <span id="state-id"></span>
+                <!--<input type="state" class="inputs" id="inputstate" placeholder="State">-->
+                <br>
+                <br>
+                <label><b>Zip :</b></label>
+                <input type="zip" class="inputs" id="zip-id" placeholder="Zip" onblur="validateZip(this.value);">
+                <span id="zip-error"></span>
+                <br>
+                <!--<label><b>Country :</b></label>
+                <input type="country" class="inputs" id="inputcountry" placeholder="Country">-->
+                <br>
+        
+                <!-------------------- Date of Survey ---------------------->
+                <label><b>Today's Date :</b></label>
+                <span style="color:#ff0000">*</span>
+                <input type="date" id="date" name="date" class="inputs" required>
+                <br>
+        
+                <!--------------------------- Graduation Month and Year -------------------------->
+                <label><b>Choose your high school graduation month from the list :</b></label>
+                <span style="color:#ff0000">*</span>
+                <input list="months" name="month" id="month" class="inputs" required>
+                <datalist id="months">
+                    <option value="January">
+                    <option value="February">
+                    <option value="March">
+                    <option value="April">
+                    <option value="May">
+                    <option value="June">
+                    <option value="July">
+                    <option value="August">
+                    <option value="September">
+                    <option value="October">
+                    <option value="November">
+                    <option value="December">
+                </datalist>
+                <br>
+                <label><b>Graduation Year:</b></label>
+                <span style="color:#ff0000">*</span>
+                <input type="year" id="year" name="year" class="inputs" required>
+                <br>
+        
+                <!----------------------- Where did you learn about this Uni ------------------------->
+                <label><b>How did you learn about this university :</b></label>
+                <br>
+                <input id="friends" type="radio" id="friends" name="source" value="friends">
+                <label for="friends">Friends</label>
+                <br>
+        
+                <input id="insta" type="radio" id="instagram" name="source" value="instagram">
+                <label for="insta">Instagram</label>
+                <br>
+        
+                <input id="site" type="radio" id="website" name="source" value="website">
+                <label for="site">University Website</label>
+                <br>
+        
+                <input id="tele" type="radio" id="television" name="source" value="television">
+                <label for="tele">television</label>
+                <br>
+        
+                <input id="other" type="radio" id="other" name="source" value="other">
+                <label for="other">Other :</label>
+                <input id="other" type="text" name="interest" placeholder="Please Mention Source" class="input">
+                <br>
+                <br>
+                <!---------------------- Campus Visited ----------------------->
+                <label><b>Which campus have you visited :</b></label>
+                <br>
+                <input id="ffx" type="checkbox" name="campus" value="fairfax">
+                <label for="ffx">Fairfax Campus</label>
+                <br>
+        
+                <input id="arling" type="checkbox" name="campus" value="arlington">
+                <label for="arling">Arlington Campus</label>
+                <br>
+        
+                <input id="sci" type="checkbox" name="campus" value="scitech">
+                <label for="sci">Science and Technology Campus</label>
+                <br>
+                <br>
+                <!---------------------- Like about Campus -------------------------->
+                <label><b>What did you like most about the campus :</b></label>
+                <br>
+                <input id="stud" type="checkbox" name="liked" value="students">
+                <label for="stud">Students</label>
+                <br>
+                <input id="loc" type="checkbox" name="liked" value="location">
+                <label for="loc">Location</label>
+                <br>
+                <input id="campus" type="checkbox" name="liked" value="campus">
+                <label for="campus">Campus</label>
+                <br>
+                <input id="atmos" type="checkbox" name="liked" value="atmosphere">
+                <label for="atmos">Atmosphere</label>
+                <br>
+                <input id="dorm" type="checkbox" name="liked" value="dorm">
+                <label for="dorm">Dorm Rooms</label>
+                <br>
+                <input id="sports" type="checkbox" name="liked" value="sports">
+                <label for="sports">Sports</label>
+                <br>
+                <br>
+                
+        
+                <!---------------------------- Recommend to others --------------------------->
+                <label><b>How likely are you to recommend this school to your friends :</b></label>
+                <select id="dropdown" class="input">
+                    <option value="Very_Likely">Very Likely</option>
+                    <option value="Likely">Likely</option>
+                    <option value="Unlikely">Unlikely</option>
+                </select>
+                <br>
+                <br>
+        
+                
+        
+                
+        
+                
+        
+                <!------------------------ Additional Comments -------------------------->
+                <label><b>Additional Comments :</b></label>
+                <br>
+                <textarea name="comments" id="textarea" cols="30" rows="5" placeholder="Add your comments here" class="input"></textarea>
+                <br>
+                <br>
+        
+                <!----------------- Average and Maximum ----------------->
+                <label><b>Calculation :</b></label>
+                <p>Enter ten comma separated numbers ranging from 1 through 100 :<br />
+                <input id = "inputVal" onblur = "average();" type = "text" size = "40" placeholder="eg:1,2,3,4,5,6,7,8,9,10"/></p>
+                <p style="color:#ff0000"id="p01"></p>
+                <label>Average:</label>
+                <span id="array"></span>
+                <br>
+                <br>
+                <label>Maximum:</label>
+                <span id="token"></span>
+                <br>
+                <br>
+                <!--<p>Average:<input id="array" type = "text" size = "15" /></p>
+                <p>Maximum:<input id="token" type = "text" size = "15" /></p>-->
+        
+                <!----------------- Submit Button ----------------->
+                <div class="button">
+                    <input type="submit" id="subm" onclick="formvalidation()" value="Submit" class="sub"/>
+                    
+                    <input type="reset" value="Reset" />
+                </div>
+                </div>
+        
+                <div id="popup-container">
+                    <div id="close-btn-container">
+                      <span id="close-btn">Close</span>
+                    </div>
+                    <h2 id="box-title">Popup Heading</h2>
+                    <p id="box-content">Popup sample content</p>
+                </div>
+            </form>
         </div>
-        </div>
-
-        <div id="popup-container">
-            <div id="close-btn-container">
-              <span id="close-btn">Close</span>
+        
+        <div id="tabs-2">
+          
+            <div class="home__data w3-container">
+                <h2 class="home__title">Volgenau School of Engineering</h2>
+                <h3 class="home__subtitle">Why Study Here ?</h3>
+                <p class="home__description">You're ready to enhance your skills and value by earning a degree in engineering, and you want to study with the best. Mason Engineering is the place.</p>
+                <p class="home__description">Because Mason Engineering is located in the heart of one of the East Coast's most active tech corridors, our undergraduate and graduate students have unparalleled access to the nation's top innovators.
+                    Elite science and technology organizations recognize our faculty as leaders in their fields. Professors bring industry knowledge to the classroom, challenging students to push the boundaries of research, skill, and application based on real-time knowledge of marketplace demand. Employers know a candidate with a degree from Volgenau will have skills that are up-to-date and highly valued.</p>
             </div>
-            <h2 id="box-title">Popup Heading</h2>
-            <p id="box-content">Popup sample content</p>
+        
+            <!--==================== Program Lists ====================-->
+        
+            <div class="w3-container">
+                <h2 id="course">Programs List</h2>
+                <ul>
+                    <li>
+                        <p>Bioengineering</p>
+                    </li>
+        
+                    <li>
+                        <p>Civil, Environmental, and Infrastructure Engineering</p>
+                    </li>
+        
+                    <li>
+                        <p>Cyber Security Engineering</p>
+                    </li>
+        
+                    <li>
+                        <p>Electrical and Computer Engineering</p>
+                    </li>
+
+                    <li>
+                        <p>Mechanical Engineering</p>
+                    </li>
+
+                    <li>
+                        <p>Systems Engineering and Operations Research</p>
+                    </li>
+
+                    <li>
+                        <p>Data Analytics Engineering</p>
+                    </li>
+
+                </ul> 
+            </div>
+
         </div>
-</form>
+    </div>
+
+
+
 
 
  
